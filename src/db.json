@@ -2,35 +2,36 @@
   "posts": [
     {
       "id": 2,
-      "firstName": "Abhishek",
-      "lastName": "Yadav",
-      "email": "abhishek.connectrix@gmail.com",
-      "mobile": "9877898765",
-      "salary": "80,000"
+      "title": "Avenge",
+      "genre": "Drama",
+      "leadActor": "Robert  Downey",
+      "rating": "5",
+      "releaseYear": "2021"
     },
     {
       "id": 3,
-      "firstName": "Reshma",
-      "lastName": "Yadav",
-      "email": "reshma@gmail.com",
-      "mobile": "9988777676",
-      "salary": "85,999"
+      "title": "The Dark Knight",
+      "genre": "Drama, Action",
+      "leadActor": "Christain bale",
+      "rating": "4",
+      "releaseYear": "2018"
+      
     },
     {
       "id": 4,
-      "firstName": "John",
-      "lastName": "Smith",
-      "email": "john.smith@abbvie.com",
-      "mobile": "9899867767",
-      "salary": "80,000"
+      "title": "SpiderMan",
+      "genre": "Drama, Action",
+      "leadActor": "Elijah Wood",
+      "rating": "3",
+      "releaseYear": "2020"
     }
   ],
-  "signupUsers": [
+  "signup": [
     {
-      "fullname": "Sashi Yadav",
-      "mobile": "9898745878",
-      "email": "yshashi30@gmail.com",
-      "password": "123456",
+      "fullname": "Astha",
+      "mobile": "9888",
+      "email": "as@gmail.com",
+      "password": "1234",
       "id": 1
     },
     {

@@ -1,21 +1,31 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { pipe } from 'rxjs';
-import {map} from 'rxjs/operators'
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, pipe } from 'rxjs';
+import {map} from 'rxjs/operators';
+//import { Signup } from 'src/app/signup';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService{
+  
 
-  public loginAPIUrl : string = "https://localhost:44394/api/Login/";
-  public moviesAPIUrl : string = "https://localhost:44394/api/Movies/";
+  public loginAPIUrl  = "https://localhost:44394/api/Login/";
+  public moviesAPIUrl  = "https://localhost:44394/api/Movies/";
   constructor(private _http : HttpClient) { }
 
   // DisplayAll(){
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
 
+  Search(data:any){
+    return this._http.get(`${this.moviesAPIUrl}get_movies/`+data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  
   PostMovies(data : any){
     return this._http.post<any>(`${this.moviesAPIUrl}add_movies`,data)
     .pipe(map((res:any)=>{
@@ -40,10 +50,18 @@ export class ApiService{
       return res;
     }))
   }
-  signUp(movObj:any){
-    //return this._http.post<any>(this.loginAPIUrl+"signup",empObj)
-    return this._http.post<any>(`${this.loginAPIUrl}signup`,movObj)
+  // signUp(movObj : any){
+  //   //return this._http.post<any>(this.loginAPIUrl+"signup",movObj)
+  //   return this._http.post<any>(`${this.loginAPIUrl}signup`,movObj)
+
+  // }
+  signUp(movObj:any):Observable<any>
+  {
+    let httpheaders=new HttpHeaders().set('Content-Type','application/json');
+    let options={headers:httpheaders}
+    return this._http.post<any>(this.loginAPIUrl,movObj,options);
   }
+  
   login(movObj:any){
     return this._http.post<any>(`${this.loginAPIUrl}login`,movObj)
   }

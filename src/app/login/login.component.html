@@ -1,10 +1,11 @@
+<h1 style="text-align:center; color:blueviolet; margin-top: 2%; font-family:'Times New Roman', Times, serif;">WELCOME TO MOVIEHUB</h1>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <div class="box">
                     <div class="text-center mb-4">
-                        <h1>Login</h1>
+                        <h1>Admin Login</h1>
                         <h6> Please enter your login and password!</h6>
                     </div>
                     <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -23,8 +24,8 @@
 
                         <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary mt-3">Login</button>
                     </form>
-                    <a routerLink='/signup' style="float: right;color:#fff">New User? Click to SignUp!</a>
-
+                    <a routerLink='/signup' style="float: right;color:#fff">New User? Click to SignUp!</a><br>
+                    <a routerLink='/forgetpassword' style="float: right;color:#fff">Forget Password? Click Here!</a>
                 </div>
             </div>
         </div>

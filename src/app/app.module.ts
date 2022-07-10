@@ -10,6 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './shared/api.service';
 import { UserComponent } from './user/user.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +24,13 @@ import { UserComponent } from './user/user.component';
     MoviesComponent,
     LoginComponent,
     SignupComponent,
-    UserComponent
+    UserComponent,
+    HeaderComponent,
+    FooterComponent,
+    SearchComponent,
+    UserLoginComponent,
+    ForgetpasswordComponent,
+    AboutusComponent
   ],
  
   imports: [

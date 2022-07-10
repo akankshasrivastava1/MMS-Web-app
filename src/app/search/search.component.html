@@ -1,0 +1,82 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:#fff;" class="navbar-brand">Search Movies Here</h1>
+  
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        
+        <div class="d-flex">
+            <button routerLink="/login" class="btn btn-danger mx-3">Logout</button>
+        </div>
+    </div>
+  </nav>
+  
+  <table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Genre</th>
+            <th scope="col">LeadActor</th>
+            <th scope="col">Rating</th>
+            <th scope="col">ReleaseYear</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+   
+        <tr *ngFor="let row of moviesData">
+  
+            <td>{{row.id}}</td>
+            <td>{{row.title}}</td>
+            <td>{{row.genre}}</td>
+            <td>{{row.leadActor}}</td>
+            <td>{{row.rating}}</td>
+            <td>{{row.releaseYear}}</td>
+            <!-- <td>
+                <button style="color: rgb(238, 254, 246);" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
+                <button [disabled]="role==='Movies'" style="color: rgb(238, 254, 246);" class="btn btn-danger mx-3" (click)="deleteMoviesDetail(row)">Delete</button>
+            </td> -->
+        </tr>
+    </tbody>
+<br>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Search Movies</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Title</label>
+                      <input type="text" formControlName="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #ref>
+                  </div>
+                  <button type="button"  (click)="SearchMov(ref.value)" class="btn btn-primary">Add</button>
+    <tr>
+        <td>Title</td>
+        <th>{{obj.title}}</th>
+        </tr>
+        <tr>
+        <td>Leadactor</td>
+        <th>{{obj.leadactor}}</th>
+        </tr>
+        <tr>
+            <td>Year</td>
+        <th>{{obj.year}}</th>
+        </tr>
+        <tr>
+            <td>Genre</td>
+        <th>{{obj.genre}}</th>
+        </tr>
+        <tr>
+            <td>Rating</td>
+        <th>{{obj.rating}}</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+        <th>{{obj.id}}</th>
+    </tr>

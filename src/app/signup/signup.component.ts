@@ -1,9 +1,9 @@
+import { ApiService } from '../shared/api.service';
+import { User } from '../shared/user';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
-import { ApiService } from '../shared/api.service';
-import { User } from '../shared/user';
 
 @Component({
   selector: 'app-signup',
@@ -48,4 +48,5 @@ export class SignupComponent implements OnInit {
     this.router.navigate(['login'])
   })
 }
-}
+} 
+
