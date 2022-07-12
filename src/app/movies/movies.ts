@@ -3,6 +3,6 @@ export class Movies{
     Title : string = "";
     Genre : string = "";
     LeadActor : string = "";
-    Rating : string = "";
-    ReleaseYear : string = "";
+    Rating : number = 0
+    ReleaseYear : number = 0
 }

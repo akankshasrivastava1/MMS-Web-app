@@ -1,0 +1,12 @@
+*[_ngcontent-ton-c19] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline: none;
+    border: none;
+    color: rgb(4, 0, 8);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}

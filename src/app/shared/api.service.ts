@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, pipe } from 'rxjs';
 import {map} from 'rxjs/operators';
+
 //import { Signup } from 'src/app/signup';
 
 
@@ -11,19 +12,21 @@ import {map} from 'rxjs/operators';
 export class ApiService{
   
 
-  public loginAPIUrl  = "https://localhost:44394/api/Login/";
-  public moviesAPIUrl  = "https://localhost:44394/api/Movies/";
+  public loginAPIUrl : string = "https://localhost:44394/api/Login/";
+  public moviesAPIUrl : string = "https://localhost:44394/api/Movies/";
+  url = "https://localhost:44394/api/Movies/"
   constructor(private _http : HttpClient) { }
 
   // DisplayAll(){
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
 
-  Search(data:any){
-    return this._http.get(`${this.moviesAPIUrl}get_movies/`+data)
-    .pipe(map((res:any)=>{
-      return res;
-    }))
+  Search(id: any){
+    return this._http.get(`${this.url}get_movies/`+id)
+    // return this._http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
+    // .pipe(map((res:any)=>{
+    //   return res;
+    // }))
   }
   
   PostMovies(data : any){
@@ -57,14 +60,16 @@ export class ApiService{
   // }
   signUp(movObj:any):Observable<any>
   {
-    let httpheaders=new HttpHeaders().set('Content-Type','application/json');
-    let options={headers:httpheaders}
-    return this._http.post<any>(this.loginAPIUrl,movObj,options);
+    // let httpheaders=new HttpHeaders().set('Content-Type','application/json');
+    // let options={headers:httpheaders}
+    // return this._http.post<any>(this.loginAPIUrl,movObj,options);
+    return this._http.post<any>(`${this.loginAPIUrl}signup`,movObj)
   }
   
   login(movObj:any){
     return this._http.post<any>(`${this.loginAPIUrl}login`,movObj)
   }
+
 
   // searchMovieByTitle(title: string) {
   //   const url = 'https://www.omdbapi.com/?t=' + title + '&apikey=e6e8b21a';

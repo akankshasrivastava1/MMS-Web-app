@@ -1,10 +1,13 @@
+<ng-container *ngIf="flag=='Search'; then upd"></ng-container>
+<ng-container *ngIf="flag=='AllRecords';"></ng-container>
 <nav class="navbar navbar-light bg-primary">
   <div class="container-fluid">
+    
       <h1 style="color:#fff;" class="navbar-brand">Movie Management System</h1>
 
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+     <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" #ref aria-label="Search">
+        <button class="btn btn-outline-success"  type="submit">Search</button>
       </form> -->
       
       <div class="d-flex">
@@ -38,8 +41,8 @@
           <td>{{row.rating}}</td>
           <td>{{row.releaseYear}}</td>
           <td>
-              <button style="color: rgb(238, 254, 246);" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
-              <button [disabled]="role==='Movies'" style="color: rgb(238, 254, 246);" class="btn btn-danger mx-3" (click)="deleteMoviesDetail(row)">Delete</button>
+              <button  *ngIf="role==='Admin'" style="color: rgb(238, 254, 246);" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
+              <button *ngIf="role==='Admin'" style="color: rgb(238, 254, 246);" class="btn btn-danger mx-3" (click)="deleteMoviesDetail(row)">Delete</button>
           </td>
       </tr>
   </tbody>
@@ -87,12 +90,64 @@
           </div>
           <div class="modal-footer">
             <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" *ngIf="showAdd" (click)="postMoviesDetails()" class="btn btn-primary">Add</button>
+            <button type="button"  *ngIf="showAdd"  (click)="postMoviesDetails()" class="btn btn-primary">Add</button>
             <button type="button" *ngIf="showUpdate" (click)="editMoviesDetail()" class="btn btn-primary">Update</button>
         </div>
     </div>
   </div>
 </div>
+<a role="button" (click)="search_movies()">Search Movies Record ? Click Here</a>
+<ng-template #upd>
+<table>
+
+<tr>
+  <td>Enter Movies id to search <input type="text" #id>
+    <button (click)="SearchMov(id.value)">Search</button></td>
+</tr>
+
+  </table>
+  <table >
+
+    <tr>
+      <td>Id</td>
+      <td><input type="text" #id value={{obj.Id}}></td>
+    </tr>
+    
+    <tr>
+      <td>Title</td>
+      <td><input type="text" #title value={{obj.Title}}></td>
+    </tr>
+    
+    <tr>
+      <td>Genre</td>
+      <td><input type="text" #gen value={{obj.Genre}}></td>
+    </tr>
+    
+    <tr>
+        <td>LeadActor</td>
+        <td><input type="text" #la value={{obj.LeadActor}}></td>
+      </tr>
+    
+      <tr>
+        <td>Rating</td>
+        <td><input type="text" #rat value={{obj.Rating}}></td>
+      </tr>
+
+      <tr>
+        <td>ReleaseYear</td>
+        <td><input type="text" #ry value={{obj.ReleaseYear}}></td>
+      </tr>
+    
+    </table>
+    <a role="button" (click)="backToRecords()">Back</a>
+  </ng-template>
+
+
+
+
+
+
+
 <footer class="bg-dark text-center text-white">
     <!-- Grid container -->
     <div class="container p-4 pb-0">

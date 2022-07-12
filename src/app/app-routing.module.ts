@@ -11,7 +11,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { AboutusComponent } from './aboutus/aboutus.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'login',pathMatch:'full'},
+  {path:'', redirectTo:'user',pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'movies', component:MoviesComponent,canActivate:[AuthGuard]},
   {path:'signup', component: SignupComponent},

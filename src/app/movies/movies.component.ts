@@ -4,13 +4,16 @@ import { ApiService } from '../shared/api.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { Movies } from './movies';
 
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-
+  flag:any;
+  status1:any;
+  obj:any;
   formValue !: FormGroup;
   moviesData !: any;
   moviesObj : Movies = new Movies();
@@ -34,6 +37,26 @@ export class MoviesComponent implements OnInit {
     this.getMoviesDetails();
     this.role = localStorage.getItem('userType')!
   }
+
+  search_movies()
+  {
+    this.flag="Search";
+  }
+
+  backToRecords()
+  {
+    this.flag="Allrecords";
+  }
+
+  SearchMov(id:any)
+  {   
+    this.api.Search(id).subscribe(
+      data=>{
+        this.obj=data;
+      }
+    );
+  }
+
   clickAddMovies(){
     this.formValue.reset();
     this.showAdd = true;
@@ -100,5 +123,12 @@ export class MoviesComponent implements OnInit {
    }
     
   }
-  
+  getdata(){
+    this.api.GetMovies().subscribe(
+      data=>{
+      this.moviesData=data;
+     }
+   );
+  }
+
 }
