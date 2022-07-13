@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@ngrx/store": "^14.0.1",
+    "ng2-search-filter": "^0.5.1",
     "ngx-toastr": "^15.0.0",
     "pipe": "^1.1.0",
     "rxjs": "~7.5.0",

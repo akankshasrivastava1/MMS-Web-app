@@ -48,15 +48,6 @@ export class MoviesComponent implements OnInit {
     this.flag="Allrecords";
   }
 
-  SearchMov(id:any)
-  {   
-    this.api.Search(id).subscribe(
-      data=>{
-        this.obj=data;
-      }
-    );
-  }
-
   clickAddMovies(){
     this.formValue.reset();
     this.showAdd = true;
@@ -110,6 +101,16 @@ export class MoviesComponent implements OnInit {
     this.formValue.controls['releaseYear'].setValue(row.releaseYear);
     this.showUpdate = true;
     this.showAdd = false;
+  }
+
+  SearchMov(row: any)
+  {   
+    this.api.Search(row.id)
+    .subscribe(res=>{
+      this.getMoviesDetails=res;
+        // this.obj=data;
+      }
+    );
   }
 
   deleteMoviesDetail(row : any){

@@ -21,12 +21,12 @@ export class ApiService{
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
 
-  Search(id: any){
-    return this._http.get(`${this.url}get_movies/`+id)
-    // return this._http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
-    // .pipe(map((res:any)=>{
-    //   return res;
-    // }))
+  Search(id: number){
+    // return this._http.get(`${this.url}get_movies/`+id)
+    return this._http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
   }
   
   PostMovies(data : any){

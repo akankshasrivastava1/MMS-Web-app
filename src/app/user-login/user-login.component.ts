@@ -39,17 +39,17 @@ export class UserLoginComponent implements OnInit {
   //   },err=>{
   //     alert("Something went wrong!!")
   //   })
-  // this.loginObj.UserName = this.loginForm.value.email;
-  // this.loginObj.Password = this.loginForm.value.password;
-  // this.api.login(this.loginObj)
-  // .subscribe(res=>{
-  //   alert(res.message);
-  //   this.router.navigate(['user']);
-  //   localStorage.setItem('token',res.token);
-  //   localStorage.setItem('userType',res.userType);
-  // },err=>{
-  //   alert("soomething went wrong")
-  // })
+  this.loginObj.UserName = this.loginForm.value.email;
+  this.loginObj.Password = this.loginForm.value.password;
+  this.api.login(this.loginObj)
+  .subscribe(res=>{
+    alert(res.message);
+    this.router.navigate(['user']);
+    localStorage.setItem('token',res.token);
+    localStorage.setItem('userType',res.userType);
+  },err=>{
+    alert("soomething went wrong")
+  })
   }
 
 }

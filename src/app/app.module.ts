@@ -16,7 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
  
   imports: [
     BrowserModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
