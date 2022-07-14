@@ -15,40 +15,40 @@ export class ApiService{
   public loginAPIUrl : string = "https://localhost:44394/api/Login/";
   public moviesAPIUrl : string = "https://localhost:44394/api/Movies/";
   url = "https://localhost:44394/api/Movies/"
-  constructor(private _http : HttpClient) { }
+  constructor(private http : HttpClient) { }
 
   // DisplayAll(){
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
 
-  Search(id: number){
+  Search(id: any){
     // return this._http.get(`${this.url}get_movies/`+id)
-    return this._http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
+    return this.http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   
   PostMovies(data : any){
-    return this._http.post<any>(`${this.moviesAPIUrl}add_movies`,data)
+    return this.http.post<any>(`${this.moviesAPIUrl}add_movies`,data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   DeleteMovies(id : number){
-    return this._http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+id)
+    return this.http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+id)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   UpdateMovies(data : any){
-    return this._http.put<any>(`${this.moviesAPIUrl}update_movies`,data)
+    return this.http.put<any>(`${this.moviesAPIUrl}update_movies`,data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   GetMovies(){
-    return this._http.get<any>(`${this.moviesAPIUrl}get_all_movies`)
+    return this.http.get<any>(`${this.moviesAPIUrl}get_all_movies`)
     .pipe(map((res:any)=>{
       return res;
     }))
@@ -63,11 +63,11 @@ export class ApiService{
     // let httpheaders=new HttpHeaders().set('Content-Type','application/json');
     // let options={headers:httpheaders}
     // return this._http.post<any>(this.loginAPIUrl,movObj,options);
-    return this._http.post<any>(`${this.loginAPIUrl}signup`,movObj)
+    return this.http.post<any>(`${this.loginAPIUrl}signup`,movObj)
   }
   
   login(movObj:any){
-    return this._http.post<any>(`${this.loginAPIUrl}login`,movObj)
+    return this.http.post<any>(`${this.loginAPIUrl}login`,movObj)
   }
 
 

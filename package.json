@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@material/dialog": "^14.0.0",
     "@ngrx/store": "^14.0.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-toastr": "^15.0.0",

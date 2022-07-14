@@ -8,42 +8,39 @@ import { ApiService } from '../shared/api.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  ngOnInit(): void {
-    
+  moviesData:any;
+  public obj = new Movies();
+  id2:any;
+  flag:any;
+  list:any;
+
+  constructor(private api:ApiService) { 
+    this.flag="list";
   }
-  // moviesData:any;
-  // public obj = new Movies();
-  // id2:any;
-  // flag:any;
-  // list:any;
 
-  // constructor(private api:ApiService) { 
-  //   this.flag="list";
-  // }
+  ngOnInit(): void {
+    this.getdata();
+  }
+  getdata(){
+    this.api.GetMovies().subscribe(
+      data=>{
+      this.moviesData=data;
+     }
+   );
+  }
 
-  // ngOnInit(): void {
-  //   this.getdata();
-  // }
-  // getdata(){
-  //   this.api.GetMovies().subscribe(
-  //     data=>{
-  //     this.moviesData=data;
-  //    }
-  //  );
-  // }
+  sec_here()
+  {
+    this.flag="sear";
+  }
 
-  // sec_here()
-  // {
-  //   this.flag="sear";
-  // }
-
-  // SearchMov(name:any){
-  //   this.api.Search(name).subscribe(
-  //       data=>{
-  //        this.obj=data;
-  //       }
-  //     );
-  //   }
+  SearchMov(name:any){
+    this.api.Search(name).subscribe(
+        data=>{
+         this.obj=data;
+        }
+      );
+    }
 
 }
     

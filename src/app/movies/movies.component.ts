@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 // import { MoviesService } from '../movies.service';
 import { ApiService } from '../shared/api.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
@@ -12,6 +12,7 @@ import { Movies } from './movies';
 })
 export class MoviesComponent implements OnInit {
   flag:any;
+  data : any;
   status1:any;
   obj:any;
   formValue !: FormGroup;
@@ -22,8 +23,10 @@ export class MoviesComponent implements OnInit {
   @Input() receive !: string;
   @Input() Specification !: any;
   role:string =""
-  constructor(private api: ApiService,
-    private formBuilder: FormBuilder) { }
+  constructor( private api: ApiService,
+    private formBuilder: FormBuilder) {
+
+     }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -104,15 +107,14 @@ export class MoviesComponent implements OnInit {
   }
 
   SearchMov(row: any)
-  {   
+   { 
     this.api.Search(row.id)
     .subscribe(res=>{
-      this.getMoviesDetails=res;
-        // this.obj=data;
-      }
-    );
+        this.data=res;
+        console.log(this.data);
+    })  
   }
-
+    
   deleteMoviesDetail(row : any){
    let clickedYes = confirm("Are you sure want to delete");
    if(clickedYes){

@@ -1,14 +1,14 @@
-<ng-container *ngIf="flag=='Search'; then upd"></ng-container>
+<!-- <ng-container *ngIf="flag=='Search'; then upd"></ng-container> -->
 <ng-container *ngIf="flag=='AllRecords';"></ng-container>
 <nav class="navbar navbar-light bg-primary">
   <div class="container-fluid">
     
       <h1 style="color:#fff;" class="navbar-brand">Movie Management System</h1>
 
-     <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" #ref aria-label="Search">
-        <button class="btn btn-outline-success"  type="submit">Search</button>
-      </form> -->
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" #id aria-label="Search">
+        <button class="btn btn-success"  (click)="SearchMov(id)" type="submit">Search</button>
+      </form>
       
       <div class="d-flex">
 
@@ -46,11 +46,6 @@
           </td>
       </tr>
   </tbody>
-  <!-- <tr>
-    <td>Enter Movies id to Search<input type="text">
-    <button style="color: rgb(59, 128, 94)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="getMoviesDetails()" class="btn btn-primary">Search</button>
-    </td>
-</tr> -->
     
 </table>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,48 +91,48 @@
     </div>
   </div>
 </div>
-<button style="color: rgb(84, 52, 198);" class="btn btn-info" (click)="search_movies()"><a>Search Movies Record ? Click Here</a></button>
+<!-- <button style="color: rgb(84, 52, 198);" class="btn btn-info" (click)="search_movies()"><a>Search Movies Record ? Click Here</a></button>
 
 <ng-template #upd>
 <table>
 
 <tr>
-  <td>Search Movies<input type="text" #row type="search">
-    <button  class="btn btn-primary" (click)="SearchMov(row)">Search</button></td>
+  <td>Search Movies<input type="text" #id type="search">
+    <button  class="btn btn-primary" (click)="SearchMov(id)">Search</button></td>
 </tr>
 
-  </table>
+  </table> -->
   <!-- <table>
 
   <tr>
       <td>Id</td>
-      <th>{{obj.Id}}</th>
+      <th>{{data.Id}}</th>
   </tr>
     <tr>
       <td>Title</td>
-      <th>{{obj.Title}}</th>
+      <th>{{data.Title}}</th>
     </tr>
     <tr>
       <td>Genre</td>
-      <th>{{obj.Genre}}</th>
+      <th>{{data.Genre}}</th>
     </tr>
     <tr>
       <td>Leadactor</td>
-      <th>{{obj.LeadActor}}</th>
+      <th>{{data.LeadActor}}</th>
     </tr>
     <tr>
       <td>Rating</td>
-      <th>{{obj.Rating}}</th>
+      <th>{{data.Rating}}</th>
     </tr>
     <tr>
       <td>ReleaseYear</td>
-      <th>{{obj.ReleaseYear}}</th>
+      <th>{{data.ReleaseYear}}</th>
     </tr>
 
   </table> -->
   <button  class="btn btn-close" (click)="backToRecords()"></button>
   <!-- <a role="button" (click)="backToRecords()">Back</a> -->
-</ng-template>
+<!-- </ng-template> -->
 
 
 <!-- <a role="button" (click)="search_movies()">Search Movies Record ? Click Here</a>

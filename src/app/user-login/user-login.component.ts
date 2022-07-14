@@ -44,7 +44,7 @@ export class UserLoginComponent implements OnInit {
   this.api.login(this.loginObj)
   .subscribe(res=>{
     alert(res.message);
-    this.router.navigate(['user']);
+    this.router.navigate(['movies']);
     localStorage.setItem('token',res.token);
     localStorage.setItem('userType',res.userType);
   },err=>{
