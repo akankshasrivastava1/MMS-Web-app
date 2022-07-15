@@ -25,6 +25,7 @@
           <th scope="col">Title</th>
           <th scope="col">Genre</th>
           <th scope="col">LeadActor</th>
+          <th scope="col">Language</th>
           <th scope="col">Rating</th>
           <th scope="col">ReleaseYear</th>
           <th scope="col" *ngIf="role==='Admin'">Action</th>
@@ -38,6 +39,7 @@
           <td>{{row.title}}</td>
           <td>{{row.genre}}</td>
           <td>{{row.leadActor}}</td>
+          <td>{{row.language}}</td>
           <td>{{row.rating}}</td>
           <td>{{row.releaseYear}}</td>
           <td>
@@ -73,6 +75,10 @@
                       <label for="exampleInputEmail1" class="form-label">Lead Actor</label>
                       <input type="text" formControlName="leadActor" class="form-control" id="exampleInputEmail1">
                   </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Language</label>
+                    <input type="text" formControlName="language" class="form-control" id="exampleInputEmail1">
+                </div>
                   <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Rating</label>
                       <input type="text" formControlName="rating" class="form-control" id="exampleInputPassword1">
@@ -130,7 +136,7 @@
     </tr>
 
   </table> -->
-  <button  class="btn btn-close" (click)="backToRecords()"></button>
+  <!-- <button  class="btn btn-close" (click)="backToRecords()"></button> -->
   <!-- <a role="button" (click)="backToRecords()">Back</a> -->
 <!-- </ng-template> -->
 

@@ -21,9 +21,9 @@ export class ApiService{
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
 
-  Search(id: any){
+  Search(title: any){
     // return this._http.get(`${this.url}get_movies/`+id)
-    return this.http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
+    return this.http.get<any>(`${this.moviesAPIUrl}get_movies/`+title)
     .pipe(map((res:any)=>{
       return res;
     }))
@@ -35,8 +35,8 @@ export class ApiService{
       return res;
     }))
   }
-  DeleteMovies(id : number){
-    return this.http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+id)
+  DeleteMovies(title: number){
+    return this.http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+title)
     .pipe(map((res:any)=>{
       return res;
     }))
@@ -68,6 +68,10 @@ export class ApiService{
   
   login(movObj:any){
     return this.http.post<any>(`${this.loginAPIUrl}login`,movObj)
+  }
+
+  forgot(movObj:any){
+    return this.http.post<any>(`${this.loginAPIUrl}forgot`,movObj)
   }
 
 

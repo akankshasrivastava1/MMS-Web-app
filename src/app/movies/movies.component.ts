@@ -34,6 +34,7 @@ export class MoviesComponent implements OnInit {
       title: [''],
       genre: [''],
       leadActor: [''],
+      language:[''],
       rating: [''],
       releaseYear: [''],
     })
@@ -61,6 +62,7 @@ export class MoviesComponent implements OnInit {
     this.moviesObj.Title = this.formValue.value.title;
      this.moviesObj.Genre = this.formValue.value.genre;
      this.moviesObj.LeadActor = this.formValue.value.leadActor;
+     this.moviesObj.Language = this.formValue.value.language;
      this.moviesObj.Rating = this.formValue.value.rating;
      this.moviesObj.ReleaseYear = this.formValue.value.releaseYear;
     this.api.PostMovies(this.moviesObj)
@@ -84,6 +86,7 @@ export class MoviesComponent implements OnInit {
     this.moviesObj.Title = this.formValue.value.title;
     this.moviesObj.Genre = this.formValue.value.genre;
     this.moviesObj.LeadActor = this.formValue.value.leadActor;
+    this.moviesObj.Language = this.formValue.value.language;
     this.moviesObj.Rating = this.formValue.value.rating;
     this.moviesObj.ReleaseYear = this.formValue.value.releaseYear;
     this.api.UpdateMovies(this.moviesObj)
@@ -100,6 +103,7 @@ export class MoviesComponent implements OnInit {
     this.formValue.controls['title'].setValue(row.title);
     this.formValue.controls['genre'].setValue(row.genre);
     this.formValue.controls['leadActor'].setValue(row.leadActor);
+    this.formValue.controls['language'].setValue(row.language);
     this.formValue.controls['rating'].setValue(row.rating);
     this.formValue.controls['releaseYear'].setValue(row.releaseYear);
     this.showUpdate = true;
@@ -108,7 +112,7 @@ export class MoviesComponent implements OnInit {
 
   SearchMov(row: any)
    { 
-    this.api.Search(row.id)
+    this.api.Search(row.title)
     .subscribe(res=>{
         this.data=res;
         console.log(this.data);
@@ -118,7 +122,7 @@ export class MoviesComponent implements OnInit {
   deleteMoviesDetail(row : any){
    let clickedYes = confirm("Are you sure want to delete");
    if(clickedYes){
-    this.api.DeleteMovies(row.id)
+    this.api.DeleteMovies(row.title)
     .subscribe(res=>{
       alert("Deleted Successfully");
       this.getMoviesDetails();

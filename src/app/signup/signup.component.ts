@@ -18,7 +18,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      id:["", Validators.required],
       fullname:["", Validators.required],
       mobile:["",Validators.required],
       username:["",Validators.compose([Validators.required,Validators.email])],
@@ -37,7 +36,6 @@ export class SignupComponent implements OnInit {
   //     alert("Something went wrong");
   //   })
   // }
-  this.signupObj.Id = this.signUpForm.value.id;
   this.signupObj.FullName = this.signUpForm.value.fullname;
   this.signupObj.UserName = this.signUpForm.value.username;
   this.signupObj.Password = this.signUpForm.value.password;
