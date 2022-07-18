@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
-import { Forgot } from '../shared/Forgot';
+import { Forgot } from '../shared/forgot';
 
 @Component({
   selector: 'app-forgetpassword',
@@ -13,16 +13,17 @@ import { Forgot } from '../shared/Forgot';
 export class ForgetpasswordComponent implements OnInit {
   public forgotForm !: FormGroup;
   public forgotObj = new Forgot();
-  u_1: any;
-  p_2: any;
-  p2: any;
-  status1: any;
 
   constructor(private fb :FormBuilder, private http : HttpClient,private router : Router,private api : ApiService) { }
 
   ngOnInit(): void {
+    this.forgotForm = this.fb.group({
+      email:["",Validators.compose([Validators.required,Validators.email])],
+      password:["",Validators.required]
+    });
+   localStorage.clear();
   }
-
+  
   forgot(){
     this.forgotObj.Id = this.forgotForm.value.Id;
     this.forgotObj.Password = this.forgotForm.value.password;

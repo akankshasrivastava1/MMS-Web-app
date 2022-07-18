@@ -5,10 +5,10 @@
     
       <h1 style="color:#fff;" class="navbar-brand">Movie Management System</h1>
 
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" #id aria-label="Search">
-        <button class="btn btn-success"  (click)="SearchMov(id)" type="submit">Search</button>
-      </form>
+    <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" #row placeholder="Search"  aria-label="Search">
+        <button class="btn btn-success"   (click)="SearchMov(row)" type="submit">Search</button>
+      </form> -->
       
       <div class="d-flex">
 
@@ -97,7 +97,9 @@
     </div>
   </div>
 </div>
-<!-- <button style="color: rgb(84, 52, 198);" class="btn btn-info" (click)="search_movies()"><a>Search Movies Record ? Click Here</a></button>
+
+
+<button style="color: rgb(84, 52, 198);"  routerLink="/search" class="btn btn-info"><a>Search Movies Record ? Click Here</a></button>
 
 <ng-template #upd>
 <table>

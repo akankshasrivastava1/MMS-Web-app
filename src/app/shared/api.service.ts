@@ -14,19 +14,23 @@ export class ApiService{
 
   public loginAPIUrl : string = "https://localhost:44394/api/Login/";
   public moviesAPIUrl : string = "https://localhost:44394/api/Movies/";
-  url = "https://localhost:44394/api/Movies/"
+  url = "https://localhost:44394/api/Search"
   constructor(private http : HttpClient) { }
 
   // DisplayAll(){
   //   return this._http.get("https://localhost:44394/api/Movies");
   // }
-
-  Search(title: any){
+  DisplayAll(){
+    return this.http.get("https://localhost:44394/api/Movies/");
+  }
+  
+  Search(id: any){
+    return this.http.get(this.url+"/"+id);
     // return this._http.get(`${this.url}get_movies/`+id)
-    return this.http.get<any>(`${this.moviesAPIUrl}get_movies/`+title)
-    .pipe(map((res:any)=>{
-      return res;
-    }))
+    // return this.http.get<any>(`${this.moviesAPIUrl}get_movies/`+id)
+    // .pipe(map((res:any)=>{
+    //   return res;
+    // }))
   }
   
   PostMovies(data : any){
@@ -35,8 +39,8 @@ export class ApiService{
       return res;
     }))
   }
-  DeleteMovies(title: number){
-    return this.http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+title)
+  DeleteMovies(id: number){
+    return this.http.delete<any>(`${this.moviesAPIUrl}delete_movies/`+id)
     .pipe(map((res:any)=>{
       return res;
     }))

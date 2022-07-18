@@ -1,79 +1,57 @@
 <ng-container *ngIf="flag=='sear'; then sea"></ng-container>
-<ng-container *ngIf="flag=='list';"></ng-container>
-<nav class="navbar navbar-light bg-primary">
-    <div class="container-fluid">
-        <h1 style="color:#fff;" class="navbar-brand">Movie Management System</h1>
-<div class="d-flex">
-</div>
-</div>
-</nav>
-<table class="table mt-3">
-<thead>
-<tr>
-    
-    <th scope="col">Title</th>
-    <th scope="col">Id</th>
-    <th scope="col">Genre</th>
-    <th scope="col">LeadActor</th>
-    <th scope="col">Rating</th>
-    <th scope="col">ReleaseYear</th>
-</tr>
-</thead>
-<tbody>
-
-<tr *ngFor="let row of moviesData">
-
-    <td>{{row.title}}</td>
-    <td>{{row.id}}</td>
-    <td>{{row.genre}}</td>
-    <td>{{row.leadActor}}</td>
-    <td>{{row.rating}}</td>
-    <td>{{row.releaseYear}}</td>
-</tr>
-</tbody>
+<ng-container *ngIf="flag=='list'; then ls"></ng-container>
+<ng-template #ls>
+<table>
+    <tr *ngFor="let p of listmovie">
+        <td>{{p.id}}</td>
+        <td>{{p.title}}</td>
+        <td>{{p.genre}}</td>
+        <td>{{p.leadActor}}</td>
+        <td>{{p.language}}</td>
+        <td>{{p.rating}}</td>
+        <td>{{p.releaseYear}}</td>
+    </tr>
+     
+</table>
 <a role="button" (click)="sec_here()">Search Movies Here</a>
-
+</ng-template>
 <br>
 
 <ng-template #sea>
-<table width="40%"  bgcolor="Orange">
-    <h1>Search Here</h1>
+<table>
     <tr>
-        <td>Enter Movie Name</td>
-        </tr>
-        <tr>
-        <td><input type="text" #ref></td>
+        <td>Search Movies<input type="text" #ref type="search">
+          <button  class="btn btn-primary" (click)="SearchMov(ref.value)">Search</button></td>
+      </tr>
+ 
+    <tr>
+         <th>Id</th>
+        <td>{{obj.id}}</td>
     </tr>
     <tr>
-        <td><button (click)="SearchMov(ref.value)">Search</button></td>
-        
-    </tr>
-   
-    <tr>
-        <td>Title</td>
-        <th>{{obj.Title}}</th>
+        <th>Title</th>
+        <td>{{obj.title}}</td>
         </tr>
         <tr>
-            <td>ID</td>
-            <th>{{obj.Id}}</th>
+            <th>Genre</th>
+        <td>{{obj.genre}}</td>
         </tr>
         <tr>
-            <td>Genre</td>
-        <th>{{obj.Genre}}</th>
+            <th>LeadActor</th>
+            <td>{{obj.leadActor}}</td>
+        </tr>
+            <tr>
+                <th>Language</th>
+                <td>{{obj.language}}</td>
+            </tr>
+        <tr>
+            <th>Rating</th>
+        <td>{{obj.rating}}</td>
         </tr>
         <tr>
-        <td>Leadactor</td>
-        <th>{{obj.LeadActor}}</th>
+            <th>ReleaseYear</th>
+        <td>{{obj.releaseYear}}</td>
         </tr>
-        <tr>
-            <td>Rating</td>
-        <th>{{obj.Rating}}</th>
-        </tr>
-        <tr>
-            <td>ReleaseYear</td>
-        <th>{{obj.ReleaseYear}}</th>
-        </tr>
-       
 </table>
 
 </ng-template>

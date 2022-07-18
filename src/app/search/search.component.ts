@@ -8,13 +8,13 @@ import { ApiService } from '../shared/api.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  moviesData:any;
-  public obj = new Movies();
+  listmovie:any;
+  obj:any;
   id2:any;
   flag:any;
   list:any;
 
-  constructor(private api:ApiService) { 
+  constructor(private api : ApiService) { 
     this.flag="list";
   }
 
@@ -22,20 +22,18 @@ export class SearchComponent implements OnInit {
     this.getdata();
   }
   getdata(){
-    this.api.GetMovies().subscribe(
+    this.api.DisplayAll().subscribe(
       data=>{
-      this.moviesData=data;
+      this.listmovie=data;
      }
    );
   }
-
   sec_here()
   {
     this.flag="sear";
   }
-
-  SearchMov(name:any){
-    this.api.Search(name).subscribe(
+    SearchMov(id:any){
+      this.api.Search(id).subscribe(
         data=>{
          this.obj=data;
         }

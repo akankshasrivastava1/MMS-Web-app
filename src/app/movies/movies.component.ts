@@ -52,6 +52,10 @@ export class MoviesComponent implements OnInit {
     this.flag="Allrecords";
   }
 
+  sec_here()
+  {
+    this.flag="sear";
+  }
   clickAddMovies(){
     this.formValue.reset();
     this.showAdd = true;
@@ -116,6 +120,7 @@ export class MoviesComponent implements OnInit {
     .subscribe(res=>{
         this.data=res;
         console.log(this.data);
+        this.getMoviesDetails();
     })  
   }
     

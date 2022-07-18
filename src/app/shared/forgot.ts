@@ -1,6 +1,6 @@
 export class Forgot{
 
-    Id: number = 0;
+    Id: string = "";
     Password: string = "";
     ConfirmPassword: string = "";
 }
